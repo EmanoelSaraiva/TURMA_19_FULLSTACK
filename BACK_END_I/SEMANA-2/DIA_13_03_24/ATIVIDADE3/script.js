@@ -1,16 +1,12 @@
-// let total = parseFloat(prompt("Qual valor da compra:"));
-// let parcelas = Number(prompt("Quantas parcelas deseja fazer:"));
-// let valorParcela = total / parcelas;
+// Crie um programa que peça um número e
+// verifique se ele é positivo, negativo ou zero.
 
-// document.write(
-//   `O valor total foi de: R$${total} feito em: ${parcelas} parcelas, sendo o valor de cada parcela de: ${valorParcela.toFixed(
-//     2
-//   )}`
-// );
+let numero = parseFloat(prompt("Insira um número"));
 
-let valorDaCompra = 149.9;
-let parcelas = 2;
-let valorParcela = valorDaCompra / parcelas;
-
-document.write("O valor total é: " + valorDaCompra + "<br>");
-document.write("Em " + parcelas + "x " + valorParcela);
+if (numero < 0) {
+  document.write(`O numero ${numero} é negativo`);
+} else if (numero > 0) {
+  document.write(`O numero ${numero} é positivo`);
+} else {
+  document.write(`O numero ${numero} é zero`);
+}
