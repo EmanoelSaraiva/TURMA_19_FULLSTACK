@@ -1,22 +1,28 @@
-let numeroVotos = parseFloat(prompt("Insira o numero de votos"));
-let votosValidos = parseFloat(prompt("Insira o numero de votos válidos"));
-let votosNulos = parseFloat(prompt("Insira o numero de votos nulos"));
-let votosBrancos = parseFloat(prompt("Insira o numero de voto brancos"));
+// Faça um algoritmo que simule um caixa eletrônico. Nesse algoritmo
+// a conta do usuário deve ser criada já com um saldo positivo. O
+// usuário precisa informar a quantidade de dinheiro que deseja
+// retirar, esse valor deve ser um número positivo, múltiplo de 5 e
+// menor do que o saldo. Cada saque eletrônico cobra uma taxa de
+// R$4.50. Ao final deve ser informado o saldo da conta caso dê tudo
+// certo com o saque, e se o usuário informar um valor maior que o
+// saldo deve ser informado ao usuário que o mesmo não tem dinheiro
+// suficiente em conta para realizar o saque.
+// OBS: Na verificação se o valor do saque é maior que o saldo deve
+// ser considerado e também contabilizado o valor da taxa a ser
+// cobrada pelo saque. Ou seja, o valor a ser sacado somado ao valor
+// da taxa do saque não pode ser maior que o saldo disponível.
 
-const valorPorcentoValidos = (votosValidos / numeroVotos) * 100;
-const valorPorcentoNulos = (votosNulos / numeroVotos) * 100;
-const valorPorcentoBrancos = (votosBrancos / numeroVotos) * 100;
+const saldo = 3000;
+let retirada = parseFloat(
+  prompt("Adicione quanto deseja sacar").replace(",", " .")
+);
 
-if (numeroVotos < votosBrancos + votosNulos + votosValidos) {
-  document.write("Insira valores validos");
+let novoSaldo = saldo - retirada - 4.5;
+
+if (retirada % 5 !== 0 || retirada <= 0) {
+  alert("Favor insira um valor valido");
+} else if (retirada > saldo) {
+  alert("Saldo insuficiente");
 } else {
-  document.write(
-    `Foram obtidos ${numeroVotos} de votos <br> Sendo que ${valorPorcentoBrancos.toFixed(
-      2
-    )}% de votos brancos <br> ${valorPorcentoNulos.toFixed(
-      2
-    )}% de votos nulos <br> ${valorPorcentoValidos.toFixed(
-      2
-    )}% de votos validos`
-  );
+  alert(`Você sacou R$:${retirada} e tem novo saldo de R$:${novoSaldo}`);
 }

@@ -1,3 +1,5 @@
-let idade = 31;
+let graus = parseFloat(prompt("Insira a temperatura em Celsius"));
 
-document.write("minha idade é " + idade + " anos");
+const temperaturaConvertida = graus * 1.8 + 32;
+
+document.writeln(`Temperatura em Fahrenheit: ${temperaturaConvertida}`);
